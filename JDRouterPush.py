@@ -217,7 +217,7 @@ def checkForUpdates():
 def resultDisplay():
     today_date = final_result["today_date"]
     today_total_point = final_result["today_total_point"]
-    title = today_date + "到账积分:" + today_total_point
+    title = "京东云无线宝" + today_date + "到账积分:" + today_total_point
     todayDate = final_result["todayDate"]
     total_avail_point = final_result["total_avail_point"]
     totalRecord = final_result["totalRecord"]
