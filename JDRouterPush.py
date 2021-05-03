@@ -227,7 +227,7 @@ def resultDisplay():
                       + "\n    - 总收积分：" + str(allPointIncome)
         if satisfiedTimes != "":
             point_infos += "\n    - 累计在线：" + str(satisfiedTimes) + "天"
-        point_infos +=  "\n    - 当前网速：" + pointInfo["speed"] \
+        point_infos +=  "\n    - 当前网速："  \
                       + "\n    - 当前IP：" + pointInfo["wanip"] \
                       + "\n    - 当前模式：" + pointInfo["model"] \
                       + "\n    - 固件版本：" + pointInfo["rom"]
