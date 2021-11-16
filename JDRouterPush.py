@@ -272,12 +272,12 @@ def resultDisplay():
                 recordType = pointRecord["recordType"]
                 recordType_str = ""
                 if recordType == 1:
-                    recordType_str = "收入："
+                    recordType_str = "积分收入："
                 else:
-                    recordType_str = "支出："
+                    recordType_str = "积分支出："
                 pointAmount = pointRecord["pointAmount"]
                 createTime = pointRecord["createTime"]
-                point_infos = point_infos + "\n        - " + \
+                point_infos = point_infos + "\n - " + \
                               createTime + "  " + recordType_str + str(pointAmount)
     notifyContentJson = {"content": content, "date": todayDate, "total_today": today_total_point,
                          "avail_today": total_avail_point, "account": bindAccount, "devicesCount": totalRecord,
