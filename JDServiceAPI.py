@@ -95,8 +95,8 @@ def getControlDevice(mac,i):
                 mac = data["mac"]
                 rom = data["rom"]
                 sn = data["sn"]
-                upload = data["upload"]
-                download = data["download"]
+                upload = data["upload"] if len(data["upload"]) != 0 else "0"
+                download = data["download"] if len(data["download"]) != 0 else "0"
                 romType = data["romType"]
                 model = data["model"]
                 cpu = data["cpu"]
@@ -130,7 +130,7 @@ def getControlDevice(mac,i):
                         cache_size += f'''{pcdn_st["nickname"]}({str(round(int(pcdn_st["cache_size"])/1048/1000,2))}GB)   '''
                     extstorage_exist = data["extstorage_exist"]
                     extstorage_enable = data["extstorage_enable"]
-                    board = data["board"]
+                    #board = data["board"] //delete useless code
                     control_device.update({"pluginInfo":True,"status":status,"cache_size":cache_size})
         elif current_value.get("msg"):
             print(current_value.get("msg"))
