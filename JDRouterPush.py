@@ -192,7 +192,7 @@ def resolveDeviceIP(DEVICE_IP):
 
 # 检测更新
 def checkForUpdates():
-    remote_address = "https://endpoint.fastgit.org/https://raw.githubusercontent.com/leifengwl/JDRouterPush/main/config.ini"
+    remote_address = "https://raw.githubusercontent.com/leifengwl/JDRouterPush/main/config.ini"
     headers = {
         "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.104 Safari/537.36"
     }
@@ -249,23 +249,23 @@ def resultDisplay():
 
         point_infos += "\n" + "- " + GlobalVariable.device_name.get(str(mac[-6:]), GlobalVariable.device_list[mac][
             "device_name"]) + "==>" \
-                       + "\n- 今日积分：" + str(todayPointIncome) \
-                       + "\n- 可用积分：" + str(amount) \
-                       + "\n- 总收积分：" + str(allPointIncome)
+                       + "\n    - 今日积分：" + str(todayPointIncome) \
+                       + "\n    - 可用积分：" + str(amount) \
+                       + "\n    - 总收积分：" + str(allPointIncome)
         if satisfiedTimes != "":
-            point_infos += "\n- 累计在线：" + str(satisfiedTimes) + "天"
+            point_infos += "\n    - 累计在线：" + str(satisfiedTimes) + "天"
         if pointInfo.get("runInfo"):
-            point_infos += "\n- 当前网速：" + pointInfo["speed"] \
-                           + "\n- 当前IP：" + pointInfo["wanip"] \
-                           + "\n- 当前模式：" + pointInfo["model"] \
-                           + "\n- 固件版本：" + pointInfo["rom"]
+            point_infos += "\n    - 当前网速：" + pointInfo["speed"] \
+                           + "\n    - 当前IP：" + pointInfo["wanip"] \
+                           + "\n    - 当前模式：" + pointInfo["model"] \
+                           + "\n    - 固件版本：" + pointInfo["rom"]
         if pointInfo.get("pluginInfo"):
-            point_infos += "\n- 插件状态：" + pointInfo["status"] \
-                           + "\n- 缓存大小：" + pointInfo["cache_size"]
-        point_infos += "\n- 在线时间：" + pointInfo.get("onlineTime", "---") \
-                       + "\n- 最近到期积分：" + str(recentExpireAmount) \
-                       + "\n- 最近到期时间：" + recentExpireTime \
-                       + "\n- 最近" + str(GlobalVariable.records_num) + "条记录："
+            point_infos += "\n    - 插件状态：" + pointInfo["status"] \
+                           + "\n    - 缓存大小：" + pointInfo["cache_size"]
+        point_infos += "\n    - 在线时间：" + pointInfo.get("onlineTime", "---") \
+                       + "\n    - 最近到期积分：" + str(recentExpireAmount) \
+                       + "\n    - 最近到期时间：" + recentExpireTime \
+                       + "\n    - 最近" + str(GlobalVariable.records_num) + "条记录："
         pointRecords = pointInfo["pointRecords"]
         if pointInfo.get("pointRecords") is not None:
             for pointRecord in pointRecords:
@@ -277,7 +277,7 @@ def resultDisplay():
                     recordType_str = "积分支出："
                 pointAmount = pointRecord["pointAmount"]
                 createTime = pointRecord["createTime"]
-                point_infos = point_infos + "\n - " + \
+                point_infos = point_infos + "\n        - " + \
                               createTime + "  " + recordType_str + str(pointAmount)
     notifyContentJson = {"content": content, "date": todayDate, "total_today": today_total_point,
                          "avail_today": total_avail_point, "account": bindAccount, "devicesCount": totalRecord,
